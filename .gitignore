@@ -4,3 +4,4 @@ __pycache__/
 /venv
 /backend/app/__pycache__
 /backend/app/main/__pycache__
+/app/test/test.db
