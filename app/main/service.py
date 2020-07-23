@@ -88,9 +88,14 @@ def register_test_result(user_id, test_id, time, value):
 
 
 def get_test_results(user_id, test_id):
+    if User.query.get(user_id) is None:
+        abort(404)
+
     if test_id == -1:
         results = TestResult.query.filter(TestResult.user_id == user_id).all()
     else:
+        if Test.query.get(test_id) is None:
+            abort(404)
         results = TestResult.query.filter(TestResult.user_id == user_id).filter(TestResult.test_id == test_id).all()
 
     data = []
