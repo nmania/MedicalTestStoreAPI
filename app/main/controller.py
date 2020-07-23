@@ -14,6 +14,11 @@ def after_request(response):
     return response
 
 
+@app.route('/', methods=['GET'])
+def root():
+    return get_response("Hello there!")
+
+
 @app.route('/profile', methods=['GET'])
 @requires_auth('get:profile')
 def app_get_profile():
